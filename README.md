@@ -10,6 +10,8 @@ You job, is to get this data onto the DOM, accounting for the inconsistent datat
 - [ ] Work with the data set that we have provide for you
 - [ ] Use Bootstrap to present the data
 - [ ] Account for the different data ("rent" versus "cost") and ensure that this is noted on the display of the information, by listing "For Rent" or "For Sale" based on which of the two properties that it has.
+- [ ] User `angular-route` to display the data in multiple view.
+- [ ] Interact with the server via an Angular service. 
 
 ## Importing the Provided Data File
 
