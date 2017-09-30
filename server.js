@@ -19,10 +19,10 @@ app.get('/', function(req, res) {
     console.log('In base route.');
     res.sendFile(path.resolve('public/views/index.html'));
 }); // end base route
-// var listingsRouter = require('./routes/listings');
+var listingsRouter = require('./routes/listings');
 
 // route uses
-// app.use('/listings', listingsRouter); // end listings use
+app.use('/listings', listingsRouter);
 
 // listening
 app.listen(port, function( ) {
