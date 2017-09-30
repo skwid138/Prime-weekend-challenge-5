@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Virtual Realty</title>
+    <!-- Angular and Angular-Route -->
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="vendors/angular-route.min.js" charset="utf-8"></script>
+
+    <!-- Angular Material -->
+    <link href="vendors/angular-material.css" rel="stylesheet" type="text/css">
+    <script src="vendors/angular-animate.min.js" charset="utf-8"></script>
+    <script src="vendors/angular-aria.min.js" charset="utf-8"></script>
+    <script src="vendors/angular-messages.min.js" charset="utf-8"></script>
+    <script src="vendors/angular-material.min.js" charset="utf-8"></script>
+
+    <!-- Client Side -->
+    <script src="scripts/client.js" charset="utf-8"></script>
+
+    <!-- Controllers -->
+    <script src="scripts/home.controller.js" charset="utf-8"></script>
+    <script src="scripts/rentals.controller.js" charset="utf-8"></script>
+    <script src="scripts/sales.controller.js" charset="utf-8"></script>
+
+    <!-- CSS and Fonts -->
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body ng-app="myApp">
+    <header>
+        <div ng-controller="NavController as NC" ng-cloak>
+            <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+                <md-nav-item md-nav-href="/#!/home" name="home">Home</md-nav-item>
+                <md-nav-item md-nav-href="/#!/rentals" name="rentals">Rentals</md-nav-item>
+                <md-nav-itme md-nav-href="/#!/sales" name="sales">For Sale</md-nav-itme>
+            </md-nav-bar>
+        </div>
+        <h1>Virtual Realty</h1>
+    </header>
+    <main>
+        <p>ng-view below</p>
+        <ng-view></ng-view>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
