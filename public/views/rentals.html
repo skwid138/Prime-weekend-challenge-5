@@ -1,4 +1,30 @@
-<section ng-init="RC.showRentals()">
-    <h1>Homes for Rent</h1>
+<section  layout="row" ng-init="RC.showRentals()">
+    <div layout="column">
+        <md-toolbar class="md-table-toolbar md-default">
+            <div class="md-toolbar-tools">
+                <span>Rentals</span>
+            </div>
+        </md-toolbar>
+        <md-table-container>
+            <table md-table md-row-select multiple>
+                <thead md-head md-order="rent">
+                    <tr md-row>
+                        <th md-column md-numeric md-order-by="rent.value"><span>Rent</span></th>
+                        <th md-column md-numeric md-order-by="sqft.value"><span>Size</span></th>
+                        <th md-column md-order-by="nameToLower">Location</th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row md-select="home" md-select-id="rent" md-auto-select ng-repeat="home in RC.rentals.list">
+                        <td md-cell>{{home.rent}}</td>
+                        <td md-cell>{{home.sqft}}</td>
+                        <td md-cell>{{home.city}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
 
+        <md-table-pagination md-limit="RC.limit" md-limit-options="[10, 25, 50, 100]" md-page="RC.page" md-total="{{RC.rentals.list.length}}" md-on-paginate="RC.showHomes()" md-page-select>
+        </md-table-pagination>
+    </div>
 </section>
