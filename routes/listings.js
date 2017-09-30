@@ -25,4 +25,5 @@ router.get('/sales', function(req, res) {
     }); // end Find
 }); // end sales GET
 
+// export
 module.exports = router;
