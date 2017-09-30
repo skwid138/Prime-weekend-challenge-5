@@ -1,4 +1,31 @@
 <section layout="row" ng-init="SC.showSales()">
-    <h1>Homes For Sale</h1>
-    
+    <div layout="column">
+        <md-toolbar class="md-table-toolbar md-default">
+            <div class="md-toolbar-tools">
+                <span>For Sale</span>
+            </div>
+        </md-toolbar>
+        <md-table-container>
+            <table md-table md-row-select multiple>
+                <thead md-head md-order="sale" md-on-reorder="">
+                    <tr md-row>
+                        <th md-column md-numeric md-order-by="cost.value"><span>Cost</span></th>
+                        <th md-column md-numeric md-order-by="sqft.value"><span>Square Footage</span></th>
+                        <th md-column md-order-by="nameToLower">Location</th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row md-select="home" md-select-id="cost" md-auto-select ng-repeat="home in SC.sales.list">
+                        <td md-cell>{{home.cost}}</td>
+                        <td md-cell>{{home.sqft}}</td>
+                        <td md-cell>{{home.city}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+
+        <md-table-pagination md-limit="SC.limit" md-limit-options="[10, 25, 50, 100]" md-page="SC.page" md-total="{{SC.rentals.list.length}}"
+            md-on-paginate="SC.showHomes()" md-page-select>
+        </md-table-pagination>
+    </div>
 </section>
