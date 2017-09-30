@@ -11,6 +11,18 @@ router.get('/rentals', function(req, res) {
             res.send(obj);
         } // end else
     }); // end Find
-}); // end GET
+}); // end rentals GET
+
+router.get('/sales', function(req, res) {
+    Listing.find({cost:{$exists:true}}, function(err, obj) {
+        if(err) {
+            console.log('Sales Find Error ->', err);
+            res.sendStatus(500);
+        } else {
+            console.log('Sales Find Results ->', obj);
+            res.send(obj);
+        } // end else
+    }); // end Find
+}); // end sales GET
 
 module.exports = router;
