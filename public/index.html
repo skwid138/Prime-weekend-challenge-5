@@ -20,21 +20,22 @@
     <script src="scripts/client.js" charset="utf-8"></script>
 
     <!-- Controllers -->
-    <script src="scripts/home.controller.js" charset="utf-8"></script>
-    <script src="scripts/rentals.controller.js" charset="utf-8"></script>
-    <script src="scripts/sales.controller.js" charset="utf-8"></script>
+    <script src="scripts/services/listings.service.js" charset="utf-8"></script>
+    <script src="scripts/controllers/home.controller.js" charset="utf-8"></script>
+    <script src="scripts/controllers/rentals.controller.js" charset="utf-8"></script>
+    <script src="scripts/controllers/sales.controller.js" charset="utf-8"></script>
 
     <!-- CSS and Fonts -->
-    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <link href="styles/main.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body ng-app="myApp">
     <header>
-        <div ng-controller="NavController as NC" ng-cloak>
+        <div ng-controller="HomeController as HC" ng-cloak>
             <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
                 <md-nav-item md-nav-href="/#!/home" name="home">Home</md-nav-item>
                 <md-nav-item md-nav-href="/#!/rentals" name="rentals">Rentals</md-nav-item>
-                <md-nav-itme md-nav-href="/#!/sales" name="sales">For Sale</md-nav-itme>
+                <md-nav-item md-nav-href="/#!/sales" name="sales">For Sale</md-nav-item>
             </md-nav-bar>
         </div>
         <h1>Virtual Realty</h1>

@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var mongoose = require('mongoose');
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 6660;
 
 // Database
 mongoose.connect('mongodb://localhost:27017/realestate');
@@ -19,10 +19,10 @@ app.get('/', function(req, res) {
     console.log('In base route.');
     res.sendFile(path.resolve('public/views/index.html'));
 }); // end base route
-var listingsRouter = require('./routes/listings');
+// var listingsRouter = require('./routes/listings');
 
 // route uses
-app.use('/listings', listingsRouter); // end listings use
+// app.use('/listings', listingsRouter); // end listings use
 
 // listening
 app.listen(port, function( ) {
