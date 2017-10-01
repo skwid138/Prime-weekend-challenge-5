@@ -1,5 +1,8 @@
+// toggle console.logs on and off
+var log = false;
+
 myApp.service('ListingService', function($http) {
-    console.log('in ListingService');
+    if(log) console.log('in ListingService');
     var self = this;
     
     self.sales = {list: []};
@@ -7,26 +10,34 @@ myApp.service('ListingService', function($http) {
 
     // GET sales from server
     self.getSales = function() {
-        console.log('in service getSales');
+        if(log) console.log('in service getSales');
         $http({
             method: 'GET',
             url: '/listings/sales'
         }).then(function(response) {
             self.sales.list = response.data;
-            console.log('getSales response ->', self.sales.list);
+            if(log) console.log('getSales response ->', self.sales.list);
+            return self.sales;
         }); // end $http
     }; // end getSales
 
     // GET rentals from server
     self.getRentals = function() {
-        console.log('inservice getRentals');
+        if(log) console.log('inservice getRentals');
         $http({
             method: 'GET',
             url: '/listings/rentals'
         }).then(function(response){
             self.rentals.list = response.data;
-            console.log('getRentals ->', self.rentals.list);
+            if(log) console.log('getRentals ->', self.rentals.list);
+            return self.rentals.list;
         }); // end $http
     }; // end getRentals
+
+    self.setRentals = function() {
+        if(true) console.log('in setRentals');
+        self.getRentals();
+
+    }; // end setRentals
 
 }); // end service

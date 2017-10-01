@@ -1,13 +1,14 @@
 myApp.controller('RentalsController', function (ListingService) {
-    console.log('in RentalsController');
     var vm = this;
+    vm.log = true;
+    console.log('in RentalsController');
 
     // sets vm.rentals to the object self.rentals with a prop of list
     vm.rentals = ListingService.rentals;
     
     vm.showRentals = function() {
         ListingService.getRentals();
-        console.log('vm.rentals.list', vm.rentals);
+        if(vm.log) console.log('vm.rentals.list', vm.rentals);
     }; // end showRentals
 
     // https://github.com/daniel-nagy/md-data-table
