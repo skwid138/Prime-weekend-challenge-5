@@ -30,14 +30,8 @@ myApp.service('ListingService', function($http) {
         }).then(function(response){
             self.rentals.list = response.data;
             if(log) console.log('getRentals ->', self.rentals.list);
-            return self.rentals.list;
         }); // end $http
     }; // end getRentals
 
-    self.setRentals = function() {
-        if(true) console.log('in setRentals');
-        self.getRentals();
-
-    }; // end setRentals
 
 }); // end service

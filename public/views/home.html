@@ -2,10 +2,62 @@
     <h1 flex>Search for Homes!</h1>
     <div layout="row" layout-padding layout-xs="column">
         <div class="homeList" layout-align="center start" flex>
-            <h3 flex>Homes For Sale</h3>
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <span>Homes For Sale</span>
+                </div>
+            </md-toolbar>
+            <md-table-container>
+                <table md-table md-row-select multiple>
+                    <thead md-head md-order="sale" md-on-reorder="">
+                        <tr md-row>
+                            <th md-column md-numeric md-order-by="cost.value"><span>Cost</span></th>
+                            <th md-column md-numeric md-order-by="sqft.value"><span>Square Footage</span></th>
+                            <th md-column md-order-by="nameToLower">Location</th>
+                        </tr>
+                    </thead>
+                    <tbody md-body>
+                        <tr md-row md-select="home" md-select-id="cost" md-auto-select ng-repeat="home in HC.sales.list">
+                            <td md-cell>{{home.cost}}</td>
+                            <td md-cell>{{home.sqft}}</td>
+                            <td md-cell>{{home.city}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+
+            <md-table-pagination md-limit="HC.limit" md-limit-options="[10, 25, 50, 100]" md-page="HC.page" md-total="{{HC.rentals.list.length}}"
+                md-on-paginate="HC.showHomes()" md-page-select>
+            </md-table-pagination>
         </div>
         <div class="homeList" flex>
-            <h3 flex>Homes For Rent</h3>
+            <md-toolbar class="md-table-toolbar md-default">
+                <div class="md-toolbar-tools">
+                    <span>Homes For Rent</span>
+                </div>
+            </md-toolbar>
+            <md-table-container>
+                <table md-table md-row-select multiple>
+                    <thead md-head md-order="rent" md-on-reorder="">
+                        <tr md-row>
+                            <th md-column md-numeric md-order-by="rent.value"><span>Rent</span></th>
+                            <th md-column md-numeric md-order-by="sqft.value"><span>Square Footage</span></th>
+                            <th md-column md-order-by="nameToLower">Location</th>
+                        </tr>
+                    </thead>
+                    <tbody md-body>
+                        <tr md-row md-select="home" md-select-id="rent" md-auto-select ng-repeat="home in HC.rentals.list">
+                            <td md-cell>{{home.rent}}</td>
+                            <td md-cell>{{home.sqft}}</td>
+                            <td md-cell>{{home.city}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+
+            <md-table-pagination md-limit="HC.limit" md-limit-options="[10, 25, 50, 100]" md-page="HC.page" md-total="{{HC.rentals.list.length}}"
+                md-on-paginate="HC.showHomes()" md-page-select>
+            </md-table-pagination>
         </div>
     </div>
 </section>
