@@ -1,0 +1,17 @@
+Setup mLabs account
+- Created realestate DB on mLabs
+http://docs.mlab.com/migrating/
+
+From Terminal
+mongoimport -h ds161194.mlab.com:61194 -d realestate -c listings -u user1 -p password1 --file /Users/hunter/Repos/prime/Projects/canopus-weekend-challenge-5/listingData.js
+
+Deployed to Heroku
+
+Installed mLabs addon
+mongodb://heroku_zxvmj55z:j7hpukk147b45fqt77gk3r69bk@ds153412.mlab.com:53412/heroku_zxvmj55z
+
+mongodb://user1:password1@ds161194.mlab.com:61194/realestate
+
+
+
+heroku config:set PROD_MONGODB=mongodb://user1:password1@ds161194.mlab.com:61194/realestate

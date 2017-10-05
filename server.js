@@ -5,10 +5,10 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var mongoose = require('mongoose');
 
-var port = process.env.PORT || 6660;
+var port = process.env.PORT;
 
 // Database
-mongoose.connect('mongodb://localhost:27017/realestate');
+mongoose.connect(process.env.MONGOLAB_URI);
 
 //uses
 app.use(bodyParser.json());
